@@ -126,3 +126,4 @@ class Reward(models.Model):
     )
  gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)  
  bonus=models.CharField(max_length=25, null=True)
+
