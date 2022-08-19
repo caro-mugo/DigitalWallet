@@ -99,12 +99,7 @@ class Reward(models.Model):
  transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Reward_transaction')
  date=models.DateTimeField(default=timezone.now)
  customer=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Reward_customer')
- GENDER_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female'),
-    )
- gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)  
- bonus=models.CharField(max_length=25, null=True)
+ 
 
 class Receipts(models.Model):
     receipt_type=models.CharField(max_length=25, null=True)
