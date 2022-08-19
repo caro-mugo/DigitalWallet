@@ -108,7 +108,7 @@ class Receipts(models.Model):
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='Receipts_account')
     total_Amount=models.IntegerField(default=0)
     transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
-    recipt_File=models.FileField(upload_to='wallet/')
+    receipt_File=models.FileField(upload_to='wallet')
     
 
 class Loan(models.Model):
