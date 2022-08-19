@@ -49,7 +49,7 @@ class Transaction(models.Model):
     transaction_amount=models.IntegerField()
     TRANSACTION_CHOICES = (
        ('withdraw', 'Withdrawal'),
-        ('depo', 'deposit'),
+        ('deposit', 'deposit'),
     )
     transaction_type=models.CharField(max_length=10, choices=TRANSACTION_CHOICES,null=True)
     transaction_charge=models.IntegerField()
@@ -63,13 +63,13 @@ class Card(models.Model):
     card_number=models.IntegerField()
     ISSUER_CHOICES=(
          ('Master', 'Mastercard'),
-        ('visa', 'visacard'),
+        ('visa', 'Mastercard'),
     )
     card_type=models.CharField(max_length=10, choices=ISSUER_CHOICES,null=True)
     expiry_date=models.DateTimeField(default=timezone.now)
     STATUS_CHOICES = (
         ('d', 'debit'),
-        ('c', 'credit'),
+        ('d', 'credit'),
     )
     
     card_status= models.CharField(max_length=1, choices=STATUS_CHOICES,null=True)
@@ -121,9 +121,9 @@ class Loan(models.Model):
  loan_type=models.CharField(max_length=25, null=True)
  amount=models.IntegerField()
  date=models.DateTimeField(default=timezone.now)
- wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='Loan_wallet')
+ wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='wallet_Loan')
  interest_rate=models.IntegerField()
- guaranter=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Loan_guaranter')
+ guaranter=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='guarantor')
  due_date=models.DateField(default=timezone.now)
  loan_balance=models.IntegerField()
  loan_term=models.IntegerField()
