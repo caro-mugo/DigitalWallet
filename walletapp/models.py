@@ -86,19 +86,19 @@ class ThirdParty(models.Model):
 
 
 class Notifications(models.Model):
- notification_Id=models.CharField(max_length=25,null=True)
- STATUS_CHOICES = (
+    notification_Id=models.CharField(max_length=25,null=True)
+    STATUS_CHOICES = (
         ('read', 'read'),
         ('unread', 'unread'),
     )
- status=models.CharField(max_length=12, choices=STATUS_CHOICES,null=True)
- date=models.DateTimeField(default=timezone.now)
- recipient=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Notifications_recipient')    
+    status=models.CharField(max_length=12, choices=STATUS_CHOICES,null=True)
+    date=models.DateTimeField(default=timezone.now)
+    recipient=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Notifications_recipient')    
  
 class Reward(models.Model):  
- transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Reward_transaction')
- date=models.DateTimeField(default=timezone.now)
- customer=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Reward_customer')
+    transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Reward_transaction')
+    date=models.DateTimeField(default=timezone.now)
+    customer=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Reward_customer')
  
 
 
@@ -113,16 +113,17 @@ class Receipts(models.Model):
     
 
 class Loan(models.Model):
-    loan_number=models.IntegerField()
-    loan_type=models.CharField(max_length=25, null=True)
-    amount=models.IntegerField()
-    date=models.DateTimeField(default=timezone.now)
-    wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='wallet_Loan')
     interest_rate=models.IntegerField()
     guaranter=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='guarantor')
     due_date=models.DateField(default=timezone.now)
     loan_balance=models.IntegerField()
     loan_term=models.IntegerField()
+    loan_number=models.IntegerField()
+    loan_type=models.CharField(max_length=25, null=True)
+    amount=models.IntegerField()
+    date=models.DateTimeField(default=timezone.now)
+    wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='wallet_Loan')
+
 
 
 
