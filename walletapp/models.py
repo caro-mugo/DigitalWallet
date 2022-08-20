@@ -101,6 +101,7 @@ class Reward(models.Model):
  customer=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Reward_customer')
  
 
+
 class Receipts(models.Model):
     receipt_type=models.CharField(max_length=25, null=True)
     receipt_date=models.DateTimeField(default=timezone.now)
@@ -108,20 +109,20 @@ class Receipts(models.Model):
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='Receipts_account')
     total_Amount=models.IntegerField(default=0)
     transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
-    receipt_File=models.FileField(upload_to='wallet')
+    recipt_File=models.FileField(upload_to='wallet')
     
 
 class Loan(models.Model):
- loan_number=models.IntegerField()
- loan_type=models.CharField(max_length=25, null=True)
- amount=models.IntegerField()
- date=models.DateTimeField(default=timezone.now)
- wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='wallet_Loan')
- interest_rate=models.IntegerField()
- guaranter=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='guarantor')
- due_date=models.DateField(default=timezone.now)
- loan_balance=models.IntegerField()
- loan_term=models.IntegerField()
+    loan_number=models.IntegerField()
+    loan_type=models.CharField(max_length=25, null=True)
+    amount=models.IntegerField()
+    date=models.DateTimeField(default=timezone.now)
+    wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='wallet_Loan')
+    interest_rate=models.IntegerField()
+    guaranter=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='guarantor')
+    due_date=models.DateField(default=timezone.now)
+    loan_balance=models.IntegerField()
+    loan_term=models.IntegerField()
 
 
 
