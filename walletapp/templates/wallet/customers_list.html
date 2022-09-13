@@ -1,0 +1,17 @@
+<table>
+    <th>
+        <td>First_name</td>
+        <td>Age</td>
+        <td>Email</td>
+
+    </th>
+    {% for customer in Customer %}
+    <tr>
+        <td> {{customer.first_name}}</td>
+        <td> {{customer.age}}</td>
+        <td> {{customer.email}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+

@@ -1,0 +1,20 @@
+<table>
+    <th>
+        <td>cvv_security</td>
+        <td>expiry_date</td>
+        <td>card_name</td>
+        <td>card_type</td>
+        <td>card_number</td>
+
+    </th>
+    {% for card in Card %}
+    <tr>
+        <td> {{card.cvv_security}}</td>
+        <td> {{card.expiry_date}}</td>
+        <td> {{card.card_namel}}</td>
+        <td> {{card.card_type}}</td>
+        <td> {{card.card_number}}</td>
+    </tr>
+    {% endfor %}
+
+</table>

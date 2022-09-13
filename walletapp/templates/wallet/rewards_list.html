@@ -1,0 +1,19 @@
+<table>
+    <th>
+        <td>transaction</td>
+        <td>date</td>
+        <td>customer</td>
+       
+        
+
+    </th>
+    {% for reward in Reward %}
+    <tr>
+        <td> {{reward.cvv_security}}</td>
+        <td> {{reward.date}}</td>
+        <td> {{reward.customerl}}</td>
+       
+    </tr>
+    {% endfor %}
+
+</table>

@@ -1,0 +1,20 @@
+<table>
+    <th>
+        <td>loan_type</td>
+        <td>loan_number</td>
+        <td>date</td>
+        <td>interest_rate</td>
+        <td>amountr</td>
+
+    </th>
+    {% for loan in Loan %}
+    <tr>
+        <td> {{loan.loan_type}}</td>
+        <td> {{loan.loan_number}}</td>
+        <td> {{loan.date}}</td>
+        <td> {{loan.interest_rate}}</td>
+        <td> {{loan.amount}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
