@@ -8,17 +8,31 @@
     <title>Document</title>
 </head>
 <body>
+
+    <style>
+        tr{
+            color:white;
+            background-color:black;
+            
+        }
+        th{
+            color:#090F34;
+            background-color:red;  
+            {% comment %} padding-right:2%; {% endcomment %}
+            width:2%;
+        }
+    </style>
     <table class="table" style="width: 70rem;">
-    <th>
-        <td>receipt_type</td>
-        <td>receipt_date</td>
-        <td>recipt_number</td>
-</th>
+    <tr>
+        <th>Receipt_type</th>
+        <th>Receipt_date</th>
+        <th>Recipt_number</th>
+</tr>
     {% for receipts in Receipts %}
     <tr>
         <td> {{receipts.receipt_type}}</td>
         <td> {{receipts.receipt_date}}</td>
-        <td> {{receipt.recipt_number}}</td>
+        <td> {{receipts.recipt_number}}</td>
         {% comment %} <td> {{receipt.account}}</td> {% endcomment %}
     </tr>
     {% endfor %}

@@ -1,5 +1,5 @@
 from locale import currency
-from django.shortcuts import render
+
 from .forms import CustomerRegistrationForm
 from .forms import WalletRegistrationForm
 from .forms import CurrencyRegistrationForm
@@ -11,6 +11,7 @@ from .forms import CardRegistrationForm
 from .forms import NotificationsRegistrationForm
 from .forms import LoanRegistrationForm
 from .forms import RewardRegistrationForm
+from django.shortcuts import render,redirect
 from .models import Account, Card, Currency, Customer, Loan, Notifications, Receipts, Reward, ThirdParty, Transaction, Wallet
 
 
@@ -27,6 +28,23 @@ def register_customer(request):
 def list_customers(request):
     customer=Customer.objects.all()
     return render(request,"wallet/customers_list.html",{"Customer": customer})
+
+
+# customer profile
+def customer_profile(request,id):
+    customer = Customer.objects.get(id=id)
+    return render(request,"wallet/customer_profile.html",{"customer":customer})
+
+def edit_profile(request,id):
+    customer = Customer.objects.get(id=id)
+    if request.method=="POST":
+        form = CustomerRegistrationForm(request.POST,instance=Customer)
+        if form.isvalid():
+            form.save()
+            return redirect("Customer_profile",id=customer.id)
+    else:
+        form = CustomerRegistrationForm(instance=Customer)
+        return render(request,"wallet/edit_profile.html",{"form":form})
 
        
 def register_wallet(request):
@@ -164,6 +182,7 @@ def register_account(request):
 def list_accounts(request):
     account=Account.objects.all()
     return render(request,"wallet/accounts_list.html",{"Account": account})    
+
 
 
 

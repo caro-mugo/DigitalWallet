@@ -8,15 +8,29 @@
     <title>Document</title>
 </head>
 <body>
-    <table class="table" style="width: 50rem;">
-    <th>
-        <td>loan_type</td>
-        <td>loan_number</td>
-        <td>date</td>
-        <td>interest_rate</td>
-        <td>amountr</td>
 
-    </th>
+    <style>
+        tr{
+            color:white;
+            background-color:black;
+            
+        }
+        th{
+            color:#090F34;
+            background-color:red;  
+            padding-right:2%;
+            width:20%%;
+        }
+    </style>
+    <table class="table" style="width: 50rem;">
+    <tr>
+        <th>loan_type</th>
+        <th>loan_number</td>
+        <th>date</th>
+        <th>interest_rate</th>
+        <th>amountr</th>
+
+    </tr>
     {% for loan in Loan %}
     <tr>
         <td> {{loan.loan_type}}</td>

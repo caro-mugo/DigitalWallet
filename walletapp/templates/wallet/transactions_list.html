@@ -8,15 +8,28 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        tr{
+            color:white;
+            background-color:black;
+            
+        }
+        th{
+            color:#090F34;
+            background-color:red;  
+            {% comment %} padding-right:2%; {% endcomment %}
+            width:20%;
+        }
+    </style>
     <table class="table" style="width: 50rem;">
-    <th>
-        <td>transaction_type</td>
-        <td>transaction_date</td>
-        <td>transaction_amount</td>
-        <td>transaction_charge</td>
+    <tr>
+        <th>Transaction_type</th>
+        <th>Transaction_date</th>
+        <th>Transaction_amount</th>
+        <th>Transaction_charge</th>
  
 
-    </th>
+    </tr>
     {% for transaction in Transaction %}
     <tr>
         <td> {{transaction.transaction_type}}</td>

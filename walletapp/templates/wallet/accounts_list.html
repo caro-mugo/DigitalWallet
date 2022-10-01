@@ -8,15 +8,28 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        tr{
+            color:white;
+            background-color:black;
+            
+        }
+        th{
+            color:#090F34;
+            background-color:red;  
+            padding-right:2%;
+            width:25%;
+        }
+    </style>
     <table class="table" style="width: 50rem;">
-    <th>
-        <td>account_number</td>
-        <td>account_type</td>
-        <td>balance</td>
-        <td>name</td>
+    <tr>
+        <th>Account_number</th>
+        <th>Account_type</th>
+        <th>Balance</th>
+        <th>Name</th>
        
 
-    </th>
+    </tr>
     {% for account in Account %}
     <tr>
         <td> {{account.account_number}}</td>
