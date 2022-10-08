@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import  customer_profile, edit_profile, list_accounts, list_cards, list_currencys, list_customers, list_loans, list_notifications, list_receipts, list_rewards, list_thirdpartys, list_transactions, list_wallets 
+from .views import  account_profile, card_profile, customer_profile, edit_account, edit_card, edit_profile, edit_receipt, edit_transaction, edit_wallet, list_accounts, list_cards, list_currencys, list_customers, list_loans, list_notifications, list_receipts, list_rewards, list_thirdpartys, list_transactions, list_wallets, receipt_profile, transaction_profile, wallet_profile 
 from .views import register_customer
 from .views import register_wallet
 from .views import register_currency
@@ -42,7 +42,22 @@ urlpatterns = [
     
     path("customerrs/<int:id>/", customer_profile,name="customer_profile"),
     path("customerrs/edit/<int:id>/", edit_profile,name="edit_profile"),
+    
+    path("wallets/<int:id>/",wallet_profile,name="wallet_profile"),
+    path("wallets/edit/<int:id>/",edit_wallet,name="edit_wallet"),
+    
+    path("accounts/<int:id>/",account_profile,name="account_profile"),
+    path("accounts/edit/<int:id>/",edit_account,name="edit_account"),
+    
+    path("receipts/<int:id>/",card_profile,name="card_profile"),
+    path("receipts/edit/<int:id>/",edit_profile,name="edit_receipt"),
+    
+    
+    path("transactions/<int:id>/",transaction_profile,name="transaction_profile"),
+    path("transactions/edit/<int:id>/",edit_transaction,name="edit_transaction"),
 
+    path("receipts/<int:id>/",receipt_profile,name="receipt_profile"),
+    path("receipts/edit/<int:id>/",edit_receipt,name="edit_receipt"),
     
 
 

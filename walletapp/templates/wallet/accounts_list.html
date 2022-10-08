@@ -1,50 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
-    <style>
-        tr{
-            color:white;
-            background-color:black;
-            
-        }
-        th{
-            color:#090F34;
-            background-color:red;  
-            padding-right:2%;
-            width:25%;
-        }
-    </style>
-    <table class="table" style="width: 50rem;">
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 700px;
+      }
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      #staffInfo tr {background-color: #D5B4E4;}
+      #mytable tr:hover {background-color:pink;}
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #AA336B;
+        color: white;
+      }
+</style>
+<table id="mytable">
     <tr>
-        <th>Account_number</th>
-        <th>Account_type</th>
-        <th>Balance</th>
-        <th>Name</th>
-       
-
+        <th>Account Number</th> 
+        <th>Account Name</th>
+        <th>Account Type</th>
+        <th>Account Password</th>
+        <th>Account Balance</th>
+        <th>Related Wallet</th>
     </tr>
-    {% for account in Account %}
-    <tr>
-        <td> {{account.account_number}}</td>
-        <td> {{account.account_type}}</td>
-        <td> {{account.balance}}</td>
-        <td> {{account.name}}</td>
-        
-    </tr>
-    {% endfor %}
-
+    {% for account  in Account %}
+<tr> 
+<td>{{ account.account_number}}</td>
+<td>{{ account.account_name}}</td>
+<td>{{ account.account_type}}</td>
+<td>{{ account.password}}</td>
+<td>{{ account.balance}}</td>
+<td>{{ account.wallet}}</td>
+</tr>
+{%endfor%}
 </table>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
-
-

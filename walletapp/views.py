@@ -12,6 +12,7 @@ from .forms import NotificationsRegistrationForm
 from .forms import LoanRegistrationForm
 from .forms import RewardRegistrationForm
 from django.shortcuts import render,redirect
+
 from .models import Account, Card, Currency, Customer, Loan, Notifications, Receipts, Reward, ThirdParty, Transaction, Wallet
 
 
@@ -183,7 +184,101 @@ def list_accounts(request):
     account=Account.objects.all()
     return render(request,"wallet/accounts_list.html",{"Account": account})    
 
+def edit_transaction(request, id):
+    transact = Transaction.objects.get(id=id)
+    if request.method == 'POST':
+        form = TransactionRegistrationForm(request.POST, instance=transact)
+        if form.is_valid():
+            form.save()
+            return redirect('profile', id=transact.id)
+
+    else:
+        form = CardRegistrationForm(instance=transact)
+        return render(request, 'wallet/edit_transact.html', {'form': form})
+
+def edit_receipt(request, id):
+    receipt = Receipts.objects.get(id=id)
+    if request.method == 'POST':
+        form = ReceiptsRegistrationForm(request.POST, instance=receipt)
+        if form.is_valid():
+            form.save()
+            return redirect('profile', id=receipt.id)
+
+    else:
+        form = ReceiptsRegistrationForm(instance=receipt)
+        return render(request, 'wallet/edit_receipt.html', {'form': form})
+
+def edit_card(request, id):
+    card = Card.objects.get(id=id)
+    if request.method == 'POST':
+        form = CardRegistrationForm(request.POST, instance=card)
+        if form.is_valid():
+            form.save()
+            return redirect('profile', id=card.id)
+
+    else:
+        form = CardRegistrationForm(instance=card)
+        return render(request, 'wallet/edit_card.html', {'form': form})
+    
+def edit_wallet(request, id):
+    wallet = Wallet.objects.get(id=id)
+    if request.method == 'POST':
+        form = WalletRegistrationForm(request.POST, instance=wallet)
+        if form.is_valid():
+            form.save()
+            return redirect('profile', id=wallet.id)
+
+    else:
+        form = WalletRegistrationForm(instance=wallet)
+        return render(request, 'wallet/edit_wallet.html', {'form': form})
+
+def edit_account(request, id):
+    account = Account.objects.get(id=id)
+    if request.method == 'POST':
+        form = AccountRegistrationForm(request.POST, instance=account)
+        if form.is_valid():
+            form.save()
+            return redirect('profile', id=account.id)
+
+    else:
+        form = AccountRegistrationForm(instance=account)
+        return render(request, 'wallet/edit_account.html', {'form': form})    
+    
+def edit_profile(request,id):
+     
+    customer=Customer.objects.get(id=id)
+    if request.method =="POST":
+        form=CustomerRegistrationForm(request.POST,instance=customer)
+        if form.is_valid():
+            form.save()
+            return redirect("customer_profile",id=customer.id)
+    else:
+        form=CustomerRegistrationForm(instance=customer)
+        return render(request,"wallet/edit_profile.html",{"form":form}) 
+       
+def wallet_profile(request,id):
+    wallet = Wallet.objects.get(id=id)
+    return render(request, 'wallet/wallet_profile.html',{'wallet': wallet})
+
+def receipt_profile(request,id):
+    receipt =Receipts.objects.get(id=id)
+    return render(request, 'wallet/receipt_profile.html',{'receipt': receipt})
+
+def transaction_profile(request,id):
+   transaction =Transaction.objects.get(id=id)
+   return render(request, 'wallet/transaction_profile.html',{'transaction': transaction})
+
+def account_profile(request,id):
+  account =Account.objects.get(id=id)
+  return render(request, 'wallet/account_profile.html',{'account': account})
+
+def card_profile(request,id):
+    card =Card.objects.get(id=id)
+    return render(request, 'wallet/card_profile.html',{'card': card})
 
 
+
+
+    
 
 # Create your views here.
